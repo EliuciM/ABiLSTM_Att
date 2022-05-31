@@ -21,18 +21,18 @@
 .
 ├── data # 语料
 │   ├── 2class
-|   |    ├── JD_MixedTrain.csv
-|   |    ├── reviews_wuhan_labeled_plus.csv 
-|   |    └── reviews_wuhan_labeled.csv
+│   │    ├── JD_MixedTrain.csv
+│   │    ├── reviews_wuhan_labeled_plus.csv 
+│   │    └── reviews_wuhan_labeled.csv
 │   ├── 3class
-|   |     ├── reviews_wuhan_labeled_plus.csv
-|   |     └── reviews_wuhan_labeled.csv
+│   │     ├── reviews_wuhan_labeled_plus.csv
+│   │     └── reviews_wuhan_labeled.csv
 │   ├── corpus
-|   |     └──reviews_wuhan_seg.txt
+│   │     └──reviews_wuhan_seg.txt
 |   └── result
 |
 ├── logs # 日志文件
-|
+│
 ├── model_load # 预训练模型路径
 │   ├── xxxxx
 │   └── xxxxx
