@@ -1,0 +1,50 @@
+2022-11-16 21:57:58 - INFO - Training/evaluation parameters: Namespace(adam_eps=1e-06, adam_lr=5e-05, base_url='../data/tnews_public/', bert_cache='../config/Langboat/mengzi-bert-base', bert_dim=768, bert_dir='Langboat/mengzi-bert-base', bert_max_length=512, bert_padding='max_length', best_score=0.5, ckpt_file='save/BD/v13/model_.bin', data_path='../data/Toursim3.csv', device='cuda', dropout=0.1, log_file='log/BD/v13.log', lstm_batch_first=True, lstm_bidirectional=True, lstm_dropout=0.0, lstm_hidden_size=256, lstm_input_size=768, lstm_num_layers=2, lstm_reflector_size=256, max_epochs=10, max_steps=50000, n_gpu=1, num_class=3, num_workers=6, prefetch=12, print_steps=10, savedmodel_path='save/BD/v13', seed=2021, smoothing=0.0, stopWords='../stopword/hit_stopwords.txt', train_batch_size=24, val_batch_size=24, val_ratio=0.2, warmup_steps=1000, weight_decay=0.001, word2Vec='../word2vec/sgns.weibo.bigram-char.bz2', word2Vec_dim=300)
+Some weights of the model checkpoint at Langboat/mengzi-bert-base were not used when initializing BertModel: ['cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.bias', 'cls.predictions.transform.dense.weight', 'sop.cls.weight', 'sop.cls.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+2022-11-16 22:00:24 - INFO - Epoch 0 step 232: loss 0.427, {'accuracy': 0.8228, 'f1': 0.8067, 'precision': 0.815, 'recall': 0.8228}
+2022-11-16 22:02:40 - INFO - Epoch 1 step 464: loss 0.447, {'accuracy': 0.8278, 'f1': 0.8181, 'precision': 0.8194, 'recall': 0.8278}
+2022-11-16 22:04:57 - INFO - Epoch 2 step 696: loss 0.497, {'accuracy': 0.8278, 'f1': 0.8189, 'precision': 0.8191, 'recall': 0.8278}
+2022-11-16 22:07:14 - INFO - Epoch 3 step 928: loss 0.570, {'accuracy': 0.8113, 'f1': 0.8051, 'precision': 0.8035, 'recall': 0.8113}
+2022-11-16 22:09:30 - INFO - Epoch 4 step 1160: loss 0.641, {'accuracy': 0.8192, 'f1': 0.8081, 'precision': 0.8094, 'recall': 0.8192}
+Exception in thread Thread-11:
+Traceback (most recent call last):
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/torch/utils/data/_utils/pin_memory.py", line 28, in _pin_memory_loop
+    r = in_queue.get(timeout=MP_STATUS_CHECK_INTERVAL)
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/multiprocessing/queues.py", line 116, in get
+    return _ForkingPickler.loads(res)
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/torch/multiprocessing/reductions.py", line 297, in rebuild_storage_fd
+    fd = df.detach()
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/multiprocessing/resource_sharer.py", line 58, in detach
+    return reduction.recv_handle(conn)
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/multiprocessing/reduction.py", line 189, in recv_handle
+    return recvfds(s, 1)[0]
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/multiprocessing/reduction.py", line 157, in recvfds
+    msg, ancdata, flags, addr = sock.recvmsg(1, socket.CMSG_SPACE(bytes_size))
+ConnectionResetError: [Errno 104] Connection reset by peer
+Traceback (most recent call last):
+  File "main.py", line 99, in <module>
+    main()
+  File "main.py", line 96, in main
+    train_and_validate(args)
+  File "main.py", line 57, in train_and_validate
+    loss.backward()
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/torch/_tensor.py", line 396, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/torch/autograd/__init__.py", line 173, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/multiprocessing/queues.py", line 245, in _feed
+    send_bytes(obj)
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/multiprocessing/connection.py", line 411, in _send_bytes
+    self._send(header + buf)
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe

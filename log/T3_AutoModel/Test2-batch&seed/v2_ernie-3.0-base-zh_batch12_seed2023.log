@@ -1,0 +1,19 @@
+2022-10-19 10:19:58 - INFO - Training/evaluation parameters: Namespace(adam_eps=1e-06, adam_lr=5e-05, base_url='../data/tnews_public/', bert_cache='../config/ernie-3.0-base-zh', bert_dim=768, bert_dir='nghuyong/ernie-3.0-base-zh', bert_max_length=512, bert_padding='max_length', best_score=0.5, ckpt_file='save/BD/v13/model_.bin', data_path='../data/Toursim3.csv', device='cuda', dropout=0.1, log_file='log/BD/v13.log', lstm_batch_first=True, lstm_bidirectional=True, lstm_dropout=0.0, lstm_hidden_size=256, lstm_input_size=768, lstm_num_layers=2, lstm_reflector_size=256, max_epochs=10, max_steps=50000, n_gpu=1, num_class=3, num_workers=6, prefetch=12, print_steps=10, savedmodel_path='save/BD/v13', seed=2023, smoothing=0.0, stopWords='../stopword/hit_stopwords.txt', train_batch_size=12, val_batch_size=12, val_ratio=0.2, warmup_steps=1000, weight_decay=0.001, word2Vec='../word2vec/sgns.weibo.bigram-char.bz2', word2Vec_dim=300)
+Some weights of the model checkpoint at nghuyong/ernie-3.0-base-zh were not used when initializing ErnieModel: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing ErnieModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing ErnieModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+2022-10-19 10:22:35 - INFO - Epoch 0 step 464: loss 0.429, {'accuracy': 0.8278, 'f1': 0.8207, 'precision': 0.8194, 'recall': 0.8278}
+2022-10-19 10:25:04 - INFO - Epoch 1 step 928: loss 0.493, {'accuracy': 0.8013, 'f1': 0.8026, 'precision': 0.8046, 'recall': 0.8013}
+2022-10-19 10:27:33 - INFO - Epoch 2 step 1392: loss 0.442, {'accuracy': 0.8221, 'f1': 0.8198, 'precision': 0.8197, 'recall': 0.8221}
+2022-10-19 10:30:03 - INFO - Epoch 3 step 1856: loss 0.505, {'accuracy': 0.802, 'f1': 0.8025, 'precision': 0.806, 'recall': 0.802}
+2022-10-19 10:32:32 - INFO - Epoch 4 step 2320: loss 0.567, {'accuracy': 0.8135, 'f1': 0.8112, 'precision': 0.8104, 'recall': 0.8135}
+Traceback (most recent call last):
+  File "main.py", line 99, in <module>
+    main()
+  File "main.py", line 96, in main
+    train_and_validate(args)
+  File "main.py", line 71, in train_and_validate
+    loss, results = validate(model, val_dataloader)
+  File "main.py", line 19, in validate
+    predictions.extend(pred_label_id.cpu().numpy())
+KeyboardInterrupt

@@ -1,0 +1,27 @@
+2022-09-08 20:43:07 - INFO - Training/evaluation parameters: Namespace(adam_eps=1e-06, adam_lr=5e-05, base_url='../data/tnews_public/', bert_cache='../config/chinese-roberta-wwm-ext', bert_dim=768, bert_dir='hfl/chinese-roberta-wwm-ext', bert_max_length=512, bert_padding='max_length', best_score=0.5, ckpt_file='save/BD/v13/model_.bin', data_path='../data/Toursim3.csv', device='cuda', dropout=0.1, log_file='log/BD/v13.log', lstm_batch_first=True, lstm_bidirectional=True, lstm_dropout=0.0, lstm_hidden_size=256, lstm_input_size=768, lstm_num_layers=2, lstm_reflector_size=256, max_epochs=10, max_steps=50000, n_gpu=1, num_class=3, num_workers=6, prefetch=12, print_steps=10, savedmodel_path='save/BD/v13', seed=2021, smoothing=0.0, stopWords='../stopword/hit_stopwords.txt', train_batch_size=24, val_batch_size=24, val_ratio=0.2, warmup_steps=1000, weight_decay=0.001, word2Vec='../word2vec/sgns.weibo.bigram-char.bz2', word2Vec_dim=300)
+Some weights of the model checkpoint at hfl/chinese-roberta-wwm-ext were not used when initializing BertModel: ['cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight', 'cls.predictions.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+2022-09-08 20:46:01 - INFO - Epoch 0 step 232: loss 0.427, {'accuracy': 0.8185, 'f1': 0.8067, 'precision': 0.8098, 'recall': 0.8185}
+2022-09-08 20:48:19 - INFO - Epoch 1 step 464: loss 0.432, {'accuracy': 0.8242, 'f1': 0.8131, 'precision': 0.815, 'recall': 0.8242}
+2022-09-08 20:50:37 - INFO - Epoch 2 step 696: loss 0.547, {'accuracy': 0.8077, 'f1': 0.7999, 'precision': 0.799, 'recall': 0.8077}
+2022-09-08 20:52:55 - INFO - Epoch 3 step 928: loss 0.603, {'accuracy': 0.8156, 'f1': 0.8081, 'precision': 0.8064, 'recall': 0.8156}
+2022-09-08 20:55:12 - INFO - Epoch 4 step 1160: loss 0.691, {'accuracy': 0.807, 'f1': 0.801, 'precision': 0.8004, 'recall': 0.807}
+2022-09-08 20:57:30 - INFO - Epoch 5 step 1392: loss 0.882, {'accuracy': 0.8142, 'f1': 0.8062, 'precision': 0.8046, 'recall': 0.8142}
+2022-09-08 20:59:48 - INFO - Epoch 6 step 1624: loss 1.075, {'accuracy': 0.8063, 'f1': 0.7984, 'precision': 0.7971, 'recall': 0.8063}
+Traceback (most recent call last):
+  File "main.py", line 100, in <module>
+    main()
+  File "main.py", line 97, in main
+    train_and_validate(args)
+  File "main.py", line 59, in train_and_validate
+    optimizer.step()
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/torch/optim/lr_scheduler.py", line 65, in wrapper
+    return wrapped(*args, **kwargs)
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/torch/optim/optimizer.py", line 108, in wrapper
+    with torch.autograd.profiler.record_function(profile_name):
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/torch/autograd/profiler.py", line 446, in __enter__
+    self.handle = torch.ops.profiler._record_function_enter(self.name, self.args)
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/torch/_ops.py", line 143, in __call__
+    return self._op(*args, **kwargs or {})
+KeyboardInterrupt

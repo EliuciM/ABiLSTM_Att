@@ -1,0 +1,27 @@
+2022-10-18 22:16:24 - INFO - Training/evaluation parameters: Namespace(adam_eps=1e-06, adam_lr=5e-05, base_url='../data/tnews_public/', bert_cache='../config/chinese-macbert-base', bert_dim=768, bert_dir='hfl/chinese-macbert-base', bert_max_length=512, bert_padding='max_length', best_score=0.5, ckpt_file='save/BD/v13/model_.bin', data_path='../data/Toursim3.csv', device='cuda', dropout=0.1, log_file='log/BD/v13.log', lstm_batch_first=True, lstm_bidirectional=True, lstm_dropout=0.0, lstm_hidden_size=256, lstm_input_size=768, lstm_num_layers=2, lstm_reflector_size=256, max_epochs=10, max_steps=50000, n_gpu=1, num_class=3, num_workers=6, prefetch=12, print_steps=10, savedmodel_path='save/BD/v13', seed=2021, smoothing=0.0, stopWords='../stopword/hit_stopwords.txt', train_batch_size=12, val_batch_size=12, val_ratio=0.2, warmup_steps=1000, weight_decay=0.001, word2Vec='../word2vec/sgns.weibo.bigram-char.bz2', word2Vec_dim=300)
+Some weights of the model checkpoint at hfl/chinese-macbert-base were not used when initializing BertModel: ['cls.predictions.bias', 'cls.predictions.decoder.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+2022-10-18 22:19:04 - INFO - Epoch 0 step 464: loss 0.462, {'accuracy': 0.8199, 'f1': 0.8118, 'precision': 0.8119, 'recall': 0.8199}
+2022-10-18 22:21:34 - INFO - Epoch 1 step 928: loss 0.469, {'accuracy': 0.8228, 'f1': 0.8091, 'precision': 0.8134, 'recall': 0.8228}
+2022-10-18 22:24:02 - INFO - Epoch 2 step 1392: loss 0.560, {'accuracy': 0.8128, 'f1': 0.8056, 'precision': 0.8062, 'recall': 0.8128}
+Traceback (most recent call last):
+  File "main.py", line 99, in <module>
+    main()
+  File "main.py", line 96, in main
+    train_and_validate(args)
+  File "main.py", line 58, in train_and_validate
+    optimizer.step()
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/torch/optim/lr_scheduler.py", line 65, in wrapper
+    return wrapped(*args, **kwargs)
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/torch/optim/optimizer.py", line 109, in wrapper
+    return func(*args, **kwargs)
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/torch/autograd/grad_mode.py", line 27, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/torch/optim/adamw.py", line 161, in step
+    adamw(params_with_grad,
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/torch/optim/adamw.py", line 218, in adamw
+    func(params,
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/torch/optim/adamw.py", line 262, in _single_tensor_adamw
+    step_t += 1
+KeyboardInterrupt

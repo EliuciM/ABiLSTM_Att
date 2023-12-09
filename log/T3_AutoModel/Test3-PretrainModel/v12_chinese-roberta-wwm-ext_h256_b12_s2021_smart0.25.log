@@ -1,0 +1,18 @@
+2022-11-18 08:58:11 - INFO - Training/evaluation parameters: Namespace(adam_eps=1e-06, adam_lr=5e-05, base_url='../data/tnews_public/', bert_cache='../config/hfl/chinese-roberta-wwm-ext', bert_dim=768, bert_dir='hfl/chinese-roberta-wwm-ext', bert_max_length=512, bert_padding='max_length', best_score=0.5, ckpt_file='save/BD/v13/model_.bin', data_path='../data/Toursim3.csv', device='cuda', dropout=0.1, log_file='log/BD/v13.log', lstm_batch_first=True, lstm_bidirectional=True, lstm_dropout=0.0, lstm_hidden_size=256, lstm_input_size=768, lstm_num_layers=2, lstm_reflector_size=256, max_epochs=10, max_steps=50000, n_gpu=1, num_class=3, num_workers=6, prefetch=12, print_steps=10, savedmodel_path='save/BD/v13', seed=2021, smoothing=0, stopWords='../stopword/hit_stopwords.txt', train_batch_size=12, val_batch_size=12, val_ratio=0.2, warmup_steps=1000, weight_decay=0.001, word2Vec='../word2vec/sgns.weibo.bigram-char.bz2', word2Vec_dim=300)
+Some weights of the model checkpoint at hfl/chinese-roberta-wwm-ext were not used when initializing BertModel: ['cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+2022-11-18 09:03:52 - INFO - Epoch 0 step 464: loss 0.468, {'accuracy': 0.8149, 'f1': 0.807, 'precision': 0.8098, 'recall': 0.8149}
+2022-11-18 09:09:18 - INFO - Epoch 1 step 928: loss 0.442, {'accuracy': 0.8257, 'f1': 0.8236, 'precision': 0.8237, 'recall': 0.8257}
+2022-11-18 09:14:44 - INFO - Epoch 2 step 1392: loss 0.511, {'accuracy': 0.8178, 'f1': 0.8072, 'precision': 0.8081, 'recall': 0.8178}
+2022-11-18 09:20:09 - INFO - Epoch 3 step 1856: loss 0.586, {'accuracy': 0.8092, 'f1': 0.7826, 'precision': 0.8048, 'recall': 0.8092}
+Traceback (most recent call last):
+  File "main.py", line 100, in <module>
+    main()
+  File "main.py", line 97, in main
+    train_and_validate(args)
+  File "main.py", line 56, in train_and_validate
+    loss_adv = smart_adv.forward(model,logits,batch)
+  File "/home/lenovo/wcProject/Bert_ABiLSTM_Att/Code_10.19/utils.py", line 429, in forward
+    if (torch.isnan(norm) or torch.isinf(norm)):
+KeyboardInterrupt

@@ -1,0 +1,21 @@
+2022-09-10 16:05:44 - INFO - Training/evaluation parameters: Namespace(adam_eps=1e-06, adam_lr=5e-05, base_url='../data/tnews_public/', bert_cache='../config/chinese-roberta-wwm-ext', bert_dim=768, bert_dir='hfl/chinese-roberta-wwm-ext', bert_max_length=512, bert_padding='max_length', best_score=0.5, ckpt_file='save/BD/v13/model_.bin', data_path='../data/Toursim3.csv', device='cuda', dropout=0.1, log_file='log/BD/v13.log', lstm_batch_first=True, lstm_bidirectional=True, lstm_dropout=0.0, lstm_hidden_size=256, lstm_input_size=768, lstm_num_layers=2, lstm_reflector_size=256, max_epochs=10, max_steps=50000, n_gpu=1, num_class=3, num_workers=6, prefetch=12, print_steps=10, savedmodel_path='save/BD/v13', seed=2021, smoothing=0.1, stopWords='../stopword/hit_stopwords.txt', train_batch_size=24, val_batch_size=24, val_ratio=0.2, warmup_steps=1000, weight_decay=0.001, word2Vec='../word2vec/sgns.weibo.bigram-char.bz2', word2Vec_dim=300)
+Some weights of the model checkpoint at hfl/chinese-roberta-wwm-ext were not used when initializing BertModel: ['cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+2022-09-10 16:13:30 - INFO - Epoch 0 step 232: loss 0.291, {'accuracy': 0.8142, 'f1': 0.8015, 'precision': 0.8082, 'recall': 0.8142}
+2022-09-10 16:21:03 - INFO - Epoch 1 step 464: loss 0.282, {'accuracy': 0.8278, 'f1': 0.8191, 'precision': 0.8195, 'recall': 0.8278}
+2022-09-10 16:28:37 - INFO - Epoch 2 step 696: loss 0.267, {'accuracy': 0.8207, 'f1': 0.8188, 'precision': 0.8175, 'recall': 0.8207}
+Traceback (most recent call last):
+  File "main.py", line 99, in <module>
+    main()
+  File "main.py", line 96, in main
+    train_and_validate(args)
+  File "main.py", line 55, in train_and_validate
+    loss, accuracy = freelb.attack(model,batch)
+  File "/home/lenovo/wcProject/Bert_ABiLSTM_Att/Code_9.2/utils.py", line 270, in attack
+    loss.backward()
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/torch/_tensor.py", line 396, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/torch/autograd/__init__.py", line 173, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

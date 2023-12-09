@@ -1,0 +1,53 @@
+2022-10-22 12:03:33 - INFO - Training/evaluation parameters: Namespace(adam_eps=1e-06, adam_lr=5e-05, base_url='../data/tnews_public/', bert_cache='../config/hfl/chinese-bert-wwm', bert_dim=768, bert_dir='hfl/chinese-bert-wwm', bert_max_length=512, bert_padding='max_length', best_score=0.5, ckpt_file='save/BD/v13/model_.bin', data_path='../data/Toursim3.csv', device='cuda', dropout=0.1, log_file='log/BD/v13.log', lstm_batch_first=True, lstm_bidirectional=True, lstm_dropout=0.0, lstm_hidden_size=256, lstm_input_size=768, lstm_num_layers=2, lstm_reflector_size=256, max_epochs=10, max_steps=50000, n_gpu=1, num_class=3, num_workers=6, prefetch=12, print_steps=10, savedmodel_path='save/BD/v13', seed=2021, smoothing=0.0, stopWords='../stopword/hit_stopwords.txt', train_batch_size=12, val_batch_size=12, val_ratio=0.2, warmup_steps=1000, weight_decay=0.001, word2Vec='../word2vec/sgns.weibo.bigram-char.bz2', word2Vec_dim=300)
+Some weights of the model checkpoint at hfl/chinese-bert-wwm were not used when initializing BertModel: ['cls.predictions.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+2022-10-22 12:07:02 - INFO - Epoch 0 step 464: loss 0.454, {'accuracy': 0.8142, 'f1': 0.7995, 'precision': 0.8034, 'recall': 0.8142}
+2022-10-22 12:09:32 - INFO - Epoch 1 step 928: loss 0.486, {'accuracy': 0.8085, 'f1': 0.7913, 'precision': 0.7964, 'recall': 0.8085}
+2022-10-22 12:12:01 - INFO - Epoch 2 step 1392: loss 0.498, {'accuracy': 0.8077, 'f1': 0.8048, 'precision': 0.806, 'recall': 0.8077}
+2022-10-22 12:14:30 - INFO - Epoch 3 step 1856: loss 0.536, {'accuracy': 0.8156, 'f1': 0.8002, 'precision': 0.8063, 'recall': 0.8156}
+2022-10-22 12:16:59 - INFO - Epoch 4 step 2320: loss 0.550, {'accuracy': 0.7999, 'f1': 0.7905, 'precision': 0.7914, 'recall': 0.7999}
+2022-10-22 12:19:27 - INFO - Epoch 5 step 2784: loss 0.666, {'accuracy': 0.8049, 'f1': 0.8036, 'precision': 0.8032, 'recall': 0.8049}
+2022-10-22 12:21:56 - INFO - Epoch 6 step 3248: loss 0.762, {'accuracy': 0.8056, 'f1': 0.7987, 'precision': 0.7984, 'recall': 0.8056}
+2022-10-22 12:24:25 - INFO - Epoch 7 step 3712: loss 0.879, {'accuracy': 0.8092, 'f1': 0.8007, 'precision': 0.7991, 'recall': 0.8092}
+2022-10-22 12:26:54 - INFO - Epoch 8 step 4176: loss 0.941, {'accuracy': 0.8149, 'f1': 0.8072, 'precision': 0.806, 'recall': 0.8149}
+Traceback (most recent call last):
+  File "main.py", line 99, in <module>
+    main()
+  File "main.py", line 96, in main
+    train_and_validate(args)
+  File "main.py", line 54, in train_and_validate
+    loss, accuracy, _, _, _ = model(batch)
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/torch/nn/parallel/data_parallel.py", line 166, in forward
+    return self.module(*inputs[0], **kwargs[0])
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/lenovo/wcProject/Bert_ABiLSTM_Att/Code_10.19/model.py", line 534, in forward
+    bert_output = self.bert(inputs['input_ids'], attention_mask = inputs['attention_mask'], token_type_ids = inputs['token_type_ids'])
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 1014, in forward
+    encoder_outputs = self.encoder(
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 603, in forward
+    layer_outputs = layer_module(
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 489, in forward
+    self_attention_outputs = self.attention(
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 419, in forward
+    self_outputs = self.self(
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 285, in forward
+    mixed_query_layer = self.query(hidden_states)
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+KeyboardInterrupt

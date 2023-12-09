@@ -1,0 +1,22 @@
+2022-09-17 21:00:12 - INFO - Training/evaluation parameters: Namespace(adam_eps=1e-06, adam_lr=5e-05, base_url='../data/tnews_public/', bert_cache='../config/chinese-roberta-wwm-ext', bert_dim=768, bert_dir='hfl/chinese-roberta-wwm-ext', bert_max_length=512, bert_padding='max_length', best_score=0.5, ckpt_file='save/BD/v13/model_.bin', data_path='../data/Toursim3.csv', device='cuda', dropout=0.1, log_file='log/BD/v13.log', lstm_batch_first=True, lstm_bidirectional=True, lstm_dropout=0.0, lstm_hidden_size=256, lstm_input_size=768, lstm_num_layers=2, lstm_reflector_size=256, max_epochs=10, max_steps=50000, n_gpu=1, num_class=3, num_workers=6, prefetch=12, print_steps=10, savedmodel_path='save/BD/v13', seed=2021, smoothing=0.0, stopWords='../stopword/hit_stopwords.txt', train_batch_size=12, val_batch_size=12, val_ratio=0.2, warmup_steps=1000, weight_decay=0.001, word2Vec='../word2vec/sgns.weibo.bigram-char.bz2', word2Vec_dim=300)
+Some weights of the model checkpoint at hfl/chinese-roberta-wwm-ext were not used when initializing BertModel: ['cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+2022-09-17 21:06:33 - INFO - Epoch 0 step 464: loss 0.449, {'accuracy': 0.8164, 'f1': 0.8123, 'precision': 0.8117, 'recall': 0.8164}
+2022-09-17 21:12:19 - INFO - Epoch 1 step 928: loss 0.446, {'accuracy': 0.8171, 'f1': 0.8128, 'precision': 0.819, 'recall': 0.8171}
+2022-09-17 21:18:04 - INFO - Epoch 2 step 1392: loss 0.490, {'accuracy': 0.807, 'f1': 0.7915, 'precision': 0.7962, 'recall': 0.807}
+2022-09-17 21:23:50 - INFO - Epoch 3 step 1856: loss 0.612, {'accuracy': 0.8099, 'f1': 0.7913, 'precision': 0.8007, 'recall': 0.8099}
+2022-09-17 21:29:36 - INFO - Epoch 4 step 2320: loss 0.643, {'accuracy': 0.807, 'f1': 0.8003, 'precision': 0.801, 'recall': 0.807}
+2022-09-17 21:35:23 - INFO - Epoch 5 step 2784: loss 0.709, {'accuracy': 0.8049, 'f1': 0.8032, 'precision': 0.802, 'recall': 0.8049}
+2022-09-17 21:41:09 - INFO - Epoch 6 step 3248: loss 0.763, {'accuracy': 0.8192, 'f1': 0.8168, 'precision': 0.8151, 'recall': 0.8192}
+2022-09-17 21:46:56 - INFO - Epoch 7 step 3712: loss 0.862, {'accuracy': 0.802, 'f1': 0.798, 'precision': 0.7958, 'recall': 0.802}
+Traceback (most recent call last):
+  File "main.py", line 100, in <module>
+    utils.setup_logging()
+  File "main.py", line 97, in main
+    
+  File "main.py", line 56, in train_and_validate
+    accuracy = accuracy.mean()
+  File "/home/lenovo/wcProject/Bert_ABiLSTM_Att/Code_9.2/utils.py", line 429, in forward
+    if (torch.isnan(norm) or torch.isinf(norm)):
+KeyboardInterrupt

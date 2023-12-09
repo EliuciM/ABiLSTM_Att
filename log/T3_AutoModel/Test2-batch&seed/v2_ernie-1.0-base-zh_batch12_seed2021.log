@@ -1,0 +1,25 @@
+2022-10-19 00:10:28 - INFO - Training/evaluation parameters: Namespace(adam_eps=1e-06, adam_lr=5e-05, base_url='../data/tnews_public/', bert_cache='../config/ernie-1.0-base-zh', bert_dim=768, bert_dir='nghuyong/ernie-1.0-base-zh', bert_max_length=512, bert_padding='max_length', best_score=0.5, ckpt_file='save/BD/v13/model_.bin', data_path='../data/Toursim3.csv', device='cuda', dropout=0.1, log_file='log/BD/v13.log', lstm_batch_first=True, lstm_bidirectional=True, lstm_dropout=0.0, lstm_hidden_size=256, lstm_input_size=768, lstm_num_layers=2, lstm_reflector_size=256, max_epochs=10, max_steps=50000, n_gpu=1, num_class=3, num_workers=6, prefetch=12, print_steps=10, savedmodel_path='save/BD/v13', seed=2021, smoothing=0.0, stopWords='../stopword/hit_stopwords.txt', train_batch_size=12, val_batch_size=12, val_ratio=0.2, warmup_steps=1000, weight_decay=0.001, word2Vec='../word2vec/sgns.weibo.bigram-char.bz2', word2Vec_dim=300)
+Some weights of the model checkpoint at nghuyong/ernie-1.0-base-zh were not used when initializing ErnieModel: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.bias']
+- This IS expected if you are initializing ErnieModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing ErnieModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+2022-10-19 00:13:03 - INFO - Epoch 0 step 464: loss 0.428, {'accuracy': 0.8156, 'f1': 0.804, 'precision': 0.8061, 'recall': 0.8156}
+2022-10-19 00:15:30 - INFO - Epoch 1 step 928: loss 0.416, {'accuracy': 0.8329, 'f1': 0.8315, 'precision': 0.8304, 'recall': 0.8329}
+2022-10-19 00:17:57 - INFO - Epoch 2 step 1392: loss 0.442, {'accuracy': 0.8113, 'f1': 0.8046, 'precision': 0.8025, 'recall': 0.8113}
+2022-10-19 00:20:24 - INFO - Epoch 3 step 1856: loss 0.521, {'accuracy': 0.8235, 'f1': 0.8183, 'precision': 0.8165, 'recall': 0.8235}
+2022-10-19 00:22:51 - INFO - Epoch 4 step 2320: loss 0.621, {'accuracy': 0.8106, 'f1': 0.8102, 'precision': 0.8101, 'recall': 0.8106}
+2022-10-19 00:25:18 - INFO - Epoch 5 step 2784: loss 0.759, {'accuracy': 0.8099, 'f1': 0.8015, 'precision': 0.8005, 'recall': 0.8099}
+2022-10-19 00:27:45 - INFO - Epoch 6 step 3248: loss 0.898, {'accuracy': 0.8085, 'f1': 0.8048, 'precision': 0.803, 'recall': 0.8085}
+2022-10-19 00:30:12 - INFO - Epoch 7 step 3712: loss 1.047, {'accuracy': 0.8142, 'f1': 0.8059, 'precision': 0.8053, 'recall': 0.8142}
+2022-10-19 00:32:40 - INFO - Epoch 8 step 4176: loss 1.083, {'accuracy': 0.8135, 'f1': 0.8086, 'precision': 0.8071, 'recall': 0.8135}
+Traceback (most recent call last):
+  File "main.py", line 99, in <module>
+    main()
+  File "main.py", line 96, in main
+    train_and_validate(args)
+  File "main.py", line 57, in train_and_validate
+    loss.backward()
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/torch/_tensor.py", line 396, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)
+  File "/home/lenovo/anaconda3/envs/tfNLP/lib/python3.8/site-packages/torch/autograd/__init__.py", line 173, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
