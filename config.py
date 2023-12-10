@@ -6,25 +6,25 @@ def parse_args():
     parser.add_argument("--seed", type=int, default=2021, help="random seed.2021")
     parser.add_argument('--dropout',type=float, default=0.1)
     # ========================= Data Configs ==========================
-    parser.add_argument('--data_path', type=str, default='../data/Toursim12.csv')
-    parser.add_argument('--base_url', type=str, default='../data/tnews_public/')
+    parser.add_argument('--data_path', type=str, default='./data/BD.csv')
+    parser.add_argument('--base_url', type=str, default='./data/')
     # parser.add_argument('--file_type', type=str, default='json')            
-    parser.add_argument('--num_class', type=int, default=2, help='2 for CSC, 15 for tnews, 119 for iflytek, 14 for THUCNews')
+    parser.add_argument('--num_class', type=int, default=3, help='2 for CSC, 15 for tnews, 119 for iflytek, 14 for THUCNews')
     parser.add_argument('--val_ratio', type=float, default=0.2)
     
     parser.add_argument('--prefetch', default=12, type=int, help="use for training duration per worker")
     parser.add_argument('--num_workers', default=6, type=int, help="num_workers for dataloaders")
 
-    parser.add_argument('--train_batch_size', default=24, type=int, help="use for training duration per worker, 28 for tnews and THUCNews, 56 for CSC, 24 for BD and Tourism, 12 for Smart T3")
-    parser.add_argument('--val_batch_size', default=24, type=int, help="use for validation duration per worker")
+    parser.add_argument('--train_batch_size', default=32, type=int, help="use for training duration per worker, 28 for tnews and THUCNews, 56 for CSC, 24 for BD and Tourism, 12 for Smart T3")
+    parser.add_argument('--val_batch_size', default=32, type=int, help="use for validation duration per worker")
 
-    parser.add_argument('--word2Vec', type=str, default='../word2vec/sgns.weibo.bigram-char.bz2')
+    parser.add_argument('--word2Vec', type=str, default='./word2vec/sgns.weibo.bigram-char.bz2')
     parser.add_argument('--word2Vec_dim', type=int, default=300)
-    parser.add_argument('--stopWords', type=str, default='../stopword/hit_stopwords.txt')
+    parser.add_argument('--stopWords', type=str, default='./stopword/hit_stopwords.txt')
 
     # ========================= BERT Configs ==========================
     parser.add_argument('--bert_dir', type=str, default='hfl/chinese-roberta-wwm-ext')
-    parser.add_argument('--bert_cache', type=str, default='../config/hfl/chinese-roberta-wwm-ext')
+    parser.add_argument('--bert_cache', type=str, default='./model/hfl/chinese-roberta-wwm-ext')
     parser.add_argument('--bert_dim', type=int, default=768)
     
     parser.add_argument('--bert_max_length', type=int, default=512, help='args for tokenizer')

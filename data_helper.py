@@ -109,9 +109,9 @@ class BERTDataset(Dataset):
     def encode_bert_input(self, text: list):
         encoded_inputs = self.tokenizer(text, max_length=self.args.bert_max_length, padding=self.args.bert_padding, truncation=True)
         
-        input_ids = torch.LongTensor(encoded_inputs['input_ids'])
-        attention_mask = torch.LongTensor(encoded_inputs['attention_mask'])
-        token_type_ids = torch.LongTensor(encoded_inputs['token_type_ids'])
+        input_ids = torch.tensor(encoded_inputs['input_ids'], dtype=torch.int64)
+        attention_mask = torch.tensor(encoded_inputs['attention_mask'], dtype=torch.int64)
+        token_type_ids = torch.tensor(encoded_inputs['token_type_ids'], dtype=torch.int64)
 
         return input_ids, attention_mask, token_type_ids
 
@@ -133,7 +133,7 @@ class BERTDataset(Dataset):
         )
 
         if not self.test_mode:
-            data['label'] = torch.LongTensor([self.label[index]])
+            data['label'] = torch.tensor([self.label[index]], dtype=torch.int64)
 
         return data
 

@@ -1,7 +1,4 @@
 import os
-import sys
-sys.path.append(os.path.dirname(os.path.dirname(__file__))+ '/transformers/src')
-
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -261,10 +258,15 @@ class BertClassificationModel(nn.Module):
         self.cls = args.num_class
         self.device = args.device 
         self.bert = AutoModel.from_pretrained(args.bert_dir, cache_dir=args.bert_cache, output_hidden_states = True).to(args.device)
-
+        self.tokenizer = BertTokenizer.from_pretrained(args.bert_dir, cache_dir=args.bert_cache, use_fast=True)
         self.bert_classifier = nn.Linear(args.bert_dim, self.cls).to(args.device)  #bert默认的隐藏单元数是768， 输出单元是2，表示二分类
 
     def forward(self, inputs:dict, inference=False):
+        for key, tensor in inputs.items():
+            # 检查tensor是否在model的设备上
+            if tensor.device != self.bert.device:
+                # 如果不在，将tensor移动到model的设备上
+                inputs[key] = tensor.to(self.bert.device)
 
         if 'inputs_embeds' in inputs:
             bert_output = self.bert(inputs_embeds = inputs['inputs_embeds'], attention_mask = inputs['attention_mask'], token_type_ids = inputs['token_type_ids'])
