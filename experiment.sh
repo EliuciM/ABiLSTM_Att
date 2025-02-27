@@ -5,16 +5,16 @@ ADV_TYPES=("none" "fgm" "pgd" "freelb" "smartp")
 FEATURE_TYPES=(1 2)
 FUSION_TYPES=("weighted" "gate" "residual" "cat")
 
-# BERT_DIRS=("hf_hub/models--hfl--chinese-roberta-wwm-ext" \
-#            "hf_hub/models--hfl--chinese-macbert-base" \
-#            "hf_hub/models--hfl--chinese-bert-wwm-ext" \
-#            "hf_hub/models--Langboat--mengzi-bert-base" \
-#            "hf_hub/models--nghuyong--ernie-3.0-base-zh")
+BERT_DIRS=("hf_hub/models--hfl--chinese-roberta-wwm-ext" \
+           "hf_hub/models--hfl--chinese-macbert-base" \
+           "hf_hub/models--hfl--chinese-bert-wwm-ext" \
+           "hf_hub/models--Langboat--mengzi-bert-base" \
+           "hf_hub/models--nghuyong--ernie-3.0-base-zh")
 
 # ADV_TYPES=("none")
 # FEATURE_TYPES=(1)
 # FUSION_TYPES=("cat")
-BERT_DIRS=("hf_hub/models--nghuyong--ernie-3.0-base-zh")
+# BERT_DIRS=("hf_hub/models--nghuyong--ernie-3.0-base-zh")
 
 # 其他默认参数
 BASE_URL="data/qunaer_20250226_balance19"
@@ -30,9 +30,7 @@ for BERT_DIR in "${BERT_DIRS[@]}"; do
             --base_url $BASE_URL \
             --feature_type $FEATURE \
             --adv_type $ADV \
-            --bert_dir $BERT_DIR \
-            --train_batch_size 16 \
-            --val_batch_size 16" 
+            --bert_dir $BERT_DIR" 
         COMMANDS+=("$CMD")
       else
         # feature_type=2 时，遍历 fusion_type
@@ -42,9 +40,7 @@ for BERT_DIR in "${BERT_DIRS[@]}"; do
               --feature_type $FEATURE \
               --adv_type $ADV \
               --fusion_type $FUSION \
-              --bert_dir $BERT_DIR \
-              --train_batch_size 16 \
-              --val_batch_size 16" 
+              --bert_dir $BERT_DIR" 
           COMMANDS+=("$CMD")
         done
       fi
