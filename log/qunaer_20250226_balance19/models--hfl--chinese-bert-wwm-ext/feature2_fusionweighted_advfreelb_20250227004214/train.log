@@ -1,0 +1,47 @@
+2025-02-27 00:42:14,821 - root - INFO - Training/evaluation config: Namespace(seed=2021, data_path='./data/ctrip_20250224.csv', base_url='data/qunaer_20250226_balance19', num_class=3, val_ratio=0.2, prefetch=12, num_workers=6, train_batch_size=32, val_batch_size=32, word2Vec='./word2vec/sgns.weibo.bigram-char.bz2', word2Vec_dim=300, stopWords='./stopword/hit_stopwords.txt', bert_dir='hf_hub/models--hfl--chinese-bert-wwm-ext', bert_dim=768, bert_max_length=512, bert_padding='max_length', lstm_input_size=768, lstm_hidden_size=256, lstm_num_layers=2, lstm_dropout=0.0, feature_type=2, fusion_type='weighted', adv_type='freelb', fgm_adv_epsilon=1.0, pgd_adv_epsilon=1.0, pgd_adv_alpha=0.3, pgd_adv_K=3, freelb_adv_K=3, freelb_adv_lr=0.01, freelb_adv_init_mag=0.02, smartp_adv_alpha=1.0, save_path='save/qunaer_20250226_balance19/models--hfl--chinese-bert-wwm-ext/feature2_fusionweighted_advfreelb_20250227004214', best_score=0.5, max_epochs=10, max_steps=50000, warmup_steps=200, print_steps=10, weight_decay=0.001, adam_eps=1e-06, adam_lr=5e-05, dropout=0.1, smoothing=0.0, patience=3, device='cuda', n_gpu=1)
+2025-02-27 00:42:29,401 - root - INFO - Epoch 0/10 step 10/300 eta 00:06:29: loss 0.305, train {'accuracy': 0.875, 'f1': 0.8166666666666667, 'precision': 0.765625, 'recall': 0.875}
+2025-02-27 00:42:42,141 - root - INFO - Epoch 0/10 step 20/300 eta 00:06:06: loss 0.252, train {'accuracy': 0.71875, 'f1': 0.6011363636363636, 'precision': 0.5166015625, 'recall': 0.71875}
+2025-02-27 00:42:54,832 - root - INFO - Epoch 0/10 step 30/300 eta 00:05:49: loss 0.265, train {'accuracy': 0.71875, 'f1': 0.6011363636363636, 'precision': 0.5166015625, 'recall': 0.71875}
+2025-02-27 00:43:32,522 - root - INFO - Epoch 0 step 30: loss 0.652, val {'accuracy': 0.7801, 'f1': 0.6837, 'precision': 0.6085, 'recall': 0.7801}
+2025-02-27 00:43:45,658 - root - INFO - Epoch 1/10 step 40/300 eta 00:09:42: loss 0.130, train {'accuracy': 0.875, 'f1': 0.8166666666666667, 'precision': 0.765625, 'recall': 0.875}
+2025-02-27 00:43:58,295 - root - INFO - Epoch 1/10 step 50/300 eta 00:08:31: loss 0.204, train {'accuracy': 0.78125, 'f1': 0.6853070175438596, 'precision': 0.6103515625, 'recall': 0.78125}
+2025-02-27 00:44:10,966 - root - INFO - Epoch 1/10 step 60/300 eta 00:07:39: loss 0.172, train {'accuracy': 0.78125, 'f1': 0.6857954545454545, 'precision': 0.6118951612903225, 'recall': 0.78125}
+2025-02-27 00:44:48,653 - root - INFO - Epoch 1 step 60: loss 0.479, val {'accuracy': 0.8193, 'f1': 0.7618, 'precision': 0.8134, 'recall': 0.8193}
+2025-02-27 00:45:01,943 - root - INFO - Epoch 2/10 step 70/300 eta 00:09:05: loss 0.190, train {'accuracy': 0.6875, 'f1': 0.70864898989899, 'precision': 0.7882085020242915, 'recall': 0.6875}
+2025-02-27 00:45:14,511 - root - INFO - Epoch 2/10 step 80/300 eta 00:08:10: loss 0.082, train {'accuracy': 0.90625, 'f1': 0.9193181818181818, 'precision': 0.953125, 'recall': 0.90625}
+2025-02-27 00:45:27,168 - root - INFO - Epoch 2/10 step 90/300 eta 00:07:26: loss 0.138, train {'accuracy': 0.84375, 'f1': 0.7951785714285714, 'precision': 0.8700810185185185, 'recall': 0.84375}
+2025-02-27 00:46:05,010 - root - INFO - Epoch 2 step 90: loss 0.411, val {'accuracy': 0.8498, 'f1': 0.8315, 'precision': 0.8325, 'recall': 0.8498}
+2025-02-27 00:46:18,335 - root - INFO - Epoch 3/10 step 100/300 eta 00:08:04: loss 0.063, train {'accuracy': 0.9375, 'f1': 0.9296218487394957, 'precision': 0.9465144230769231, 'recall': 0.9375}
+2025-02-27 00:46:30,998 - root - INFO - Epoch 3/10 step 110/300 eta 00:07:20: loss 0.099, train {'accuracy': 0.875, 'f1': 0.8605324074074073, 'precision': 0.8794642857142857, 'recall': 0.875}
+2025-02-27 00:46:43,729 - root - INFO - Epoch 3/10 step 120/300 eta 00:06:41: loss 0.042, train {'accuracy': 1.0, 'f1': 1.0, 'precision': 1.0, 'recall': 1.0}
+2025-02-27 00:47:21,683 - root - INFO - Epoch 3 step 120: loss 0.438, val {'accuracy': 0.8131, 'f1': 0.8257, 'precision': 0.8494, 'recall': 0.8131}
+2025-02-27 00:47:21,683 - root - INFO - Early Stopping Check: No improvement for 1/3 epochs
+2025-02-27 00:47:34,505 - root - INFO - Epoch 4/10 step 130/300 eta 00:06:56: loss 0.069, train {'accuracy': 0.9375, 'f1': 0.9375, 'precision': 0.9375, 'recall': 0.9375}
+2025-02-27 00:47:47,252 - root - INFO - Epoch 4/10 step 140/300 eta 00:06:18: loss 0.048, train {'accuracy': 0.9375, 'f1': 0.9441550925925926, 'precision': 0.9625, 'recall': 0.9375}
+2025-02-27 00:47:59,816 - root - INFO - Epoch 4/10 step 150/300 eta 00:05:43: loss 0.031, train {'accuracy': 1.0, 'f1': 1.0, 'precision': 1.0, 'recall': 1.0}
+2025-02-27 00:48:37,382 - root - INFO - Epoch 4 step 150: loss 0.499, val {'accuracy': 0.8121, 'f1': 0.8269, 'precision': 0.8597, 'recall': 0.8121}
+2025-02-27 00:48:37,382 - root - INFO - Early Stopping Check: No improvement for 2/3 epochs
+2025-02-27 00:48:50,295 - root - INFO - Epoch 5/10 step 160/300 eta 00:05:45: loss 0.016, train {'accuracy': 1.0, 'f1': 1.0, 'precision': 1.0, 'recall': 1.0}
+2025-02-27 00:49:02,957 - root - INFO - Epoch 5/10 step 170/300 eta 00:05:11: loss 0.050, train {'accuracy': 0.96875, 'f1': 0.9676484230055657, 'precision': 0.97, 'recall': 0.96875}
+2025-02-27 00:49:15,795 - root - INFO - Epoch 5/10 step 180/300 eta 00:04:39: loss 0.008, train {'accuracy': 1.0, 'f1': 1.0, 'precision': 1.0, 'recall': 1.0}
+2025-02-27 00:49:53,585 - root - INFO - Epoch 5 step 180: loss 0.477, val {'accuracy': 0.8407, 'f1': 0.8388, 'precision': 0.8374, 'recall': 0.8407}
+2025-02-27 00:50:07,050 - root - INFO - Epoch 6/10 step 190/300 eta 00:04:32: loss 0.010, train {'accuracy': 1.0, 'f1': 1.0, 'precision': 1.0, 'recall': 1.0}
+2025-02-27 00:50:19,718 - root - INFO - Epoch 6/10 step 200/300 eta 00:04:01: loss 0.006, train {'accuracy': 1.0, 'f1': 1.0, 'precision': 1.0, 'recall': 1.0}
+2025-02-27 00:50:32,351 - root - INFO - Epoch 6/10 step 210/300 eta 00:03:32: loss 0.009, train {'accuracy': 1.0, 'f1': 1.0, 'precision': 1.0, 'recall': 1.0}
+2025-02-27 00:51:10,133 - root - INFO - Epoch 6 step 210: loss 0.497, val {'accuracy': 0.8463, 'f1': 0.8446, 'precision': 0.8449, 'recall': 0.8463}
+2025-02-27 00:51:23,519 - root - INFO - Epoch 7/10 step 220/300 eta 00:03:19: loss 0.005, train {'accuracy': 1.0, 'f1': 1.0, 'precision': 1.0, 'recall': 1.0}
+2025-02-27 00:51:36,200 - root - INFO - Epoch 7/10 step 230/300 eta 00:02:50: loss 0.005, train {'accuracy': 1.0, 'f1': 1.0, 'precision': 1.0, 'recall': 1.0}
+2025-02-27 00:51:48,842 - root - INFO - Epoch 7/10 step 240/300 eta 00:02:23: loss 0.004, train {'accuracy': 1.0, 'f1': 1.0, 'precision': 1.0, 'recall': 1.0}
+2025-02-27 00:52:26,290 - root - INFO - Epoch 7 step 240: loss 0.535, val {'accuracy': 0.844, 'f1': 0.8404, 'precision': 0.8419, 'recall': 0.844}
+2025-02-27 00:52:26,290 - root - INFO - Early Stopping Check: No improvement for 1/3 epochs
+2025-02-27 00:52:39,134 - root - INFO - Epoch 8/10 step 250/300 eta 00:02:04: loss 0.054, train {'accuracy': 0.96875, 'f1': 0.9680555555555554, 'precision': 0.970108695652174, 'recall': 0.96875}
+2025-02-27 00:52:51,843 - root - INFO - Epoch 8/10 step 260/300 eta 00:01:37: loss 0.005, train {'accuracy': 1.0, 'f1': 1.0, 'precision': 1.0, 'recall': 1.0}
+2025-02-27 00:53:04,446 - root - INFO - Epoch 8/10 step 270/300 eta 00:01:12: loss 0.003, train {'accuracy': 1.0, 'f1': 1.0, 'precision': 1.0, 'recall': 1.0}
+2025-02-27 00:53:42,050 - root - INFO - Epoch 8 step 270: loss 0.542, val {'accuracy': 0.8446, 'f1': 0.8403, 'precision': 0.8403, 'recall': 0.8446}
+2025-02-27 00:53:42,050 - root - INFO - Early Stopping Check: No improvement for 2/3 epochs
+2025-02-27 00:53:54,889 - root - INFO - Epoch 9/10 step 280/300 eta 00:00:49: loss 0.004, train {'accuracy': 1.0, 'f1': 1.0, 'precision': 1.0, 'recall': 1.0}
+2025-02-27 00:54:07,564 - root - INFO - Epoch 9/10 step 290/300 eta 00:00:24: loss 0.006, train {'accuracy': 1.0, 'f1': 1.0, 'precision': 1.0, 'recall': 1.0}
+2025-02-27 00:54:20,237 - root - INFO - Epoch 9/10 step 300/300 eta 00:00:00: loss 0.005, train {'accuracy': 1.0, 'f1': 1.0, 'precision': 1.0, 'recall': 1.0}
+2025-02-27 00:54:57,776 - root - INFO - Epoch 9 step 300: loss 0.542, val {'accuracy': 0.8444, 'f1': 0.8403, 'precision': 0.8404, 'recall': 0.8444}
+2025-02-27 00:54:57,776 - root - INFO - Early Stopping Check: No improvement for 3/3 epochs
+2025-02-27 00:54:57,776 - root - INFO - Stopping early at epoch 9 due to no improvement in validation F1 and increasing loss.
